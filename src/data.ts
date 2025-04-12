@@ -1,6 +1,6 @@
 import { SongItem} from "./types";
 
-export const defaultodos: SongItem[] = [
+export const defaultsongs: SongItem[] = [
   {
     id: 1,
     title: "Umbrella",

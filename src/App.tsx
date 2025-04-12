@@ -2,47 +2,47 @@ import "./App.css";
 
 import { Alert, Button, Form } from "react-bootstrap";
 
-import { TodoItem } from "./types";
-import TodoList from "./components/TodoList";
-import { defaultTodos } from "./data";
+import { SongItem } from "./types";
+import SongList from "./components/SongList";
+import { defaultsongs } from "./data";
 import { useState } from "react";
 
 function App() {
   const [showAlert, setShowAlert] = useState<boolean>(false);
-  const [newTodo, setNewTodo] = useState<string>("");
+  const [newSong, setNewSong] = useState<string>("");
 
-  const [todos, setTodos] = useState<TodoItem[]>(defaultTodos);
+  const [songs, setSongs] = useState<SongItem[]>(defaultsongs);
 
-  const addTodo = () => {
-    if (!newTodo) {
+  const addSong = () => {
+    if (!newSong) {
       setShowAlert(true);
       return;
     }
 
     setShowAlert(false);
-    const todo: TodoItem = {
-      id: todos.length + 1,
-      title: newTodo,
+    const song: SongItem = {
+      id: songs.length + 1,
+      title: newSong,
       completed: false,
     };
-    setTodos([...todos, todo]);
-    setNewTodo("");
+    setSongs([...songs, song]);
+    setNewSong("");
   };
 
   const toggleComplete = (id: number) => {
-    const updatedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed;
+    const updatedSongs = songs.map((song) => {
+      if (song.id === id) {
+        song.completed = !song.completed;
       }
-      return todo;
+      return song;
     });
 
-    setTodos(updatedTodos);
+    setSongs(updatedSongs);
   };
 
-  const deleteTodo = (id: number) => {
-    const updatedTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(updatedTodos);
+  const deleteSong = (id: number) => {
+    const updatedSongs = songs.filter((song) => song.id !== id);
+    setSongs(updatedSongs);
   };
 
   return (
@@ -61,20 +61,20 @@ function App() {
           </p>
         </Alert>
       )}
-      <h1>Todo App Example</h1>
+      <h1>Song App Example</h1>
       <Form.Control
         type="text"
-        value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
+        value={newSong}
+        onChange={(e) => setNewSong(e.target.value)}
         placeholder="Enter a task"
       />
-      <Button className="mt-2 mb-2" onClick={addTodo}>
-        Add Todo
+      <Button className="mt-2 mb-2" onClick={addSong}>
+        Add Song
       </Button>
-      <TodoList
-        todos={todos}
+      <SongList
+        songs={songs}
         toggleComplete={toggleComplete}
-        deleteTodo={deleteTodo}
+        deleteSong={deleteSong}
       />
     </div>
   );

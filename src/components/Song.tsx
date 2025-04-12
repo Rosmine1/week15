@@ -1,28 +1,28 @@
-import "./Todo.css";
+import "./Song.css";
 
 import { Button } from "react-bootstrap";
-import type { TodoItem } from "../types";
+import type { SongItem } from "../types";
 
-type TodoProps = {
-  todo: TodoItem;
+type SongProps = {
+  song: SongItem;
   toggleComplete: (id: number) => void;
-  deleteTodo: (id: number) => void;
+  deleteSong: (id: number) => void;
 };
 
-export default function Todo({ todo, toggleComplete, deleteTodo }: TodoProps) {
+export default function Song({ song, toggleComplete, deleteSong }: SongProps) {
   return (
-    <div className="todo">
-      <p className={todo?.completed ? "todo-title-completed " : ""}>
-        {todo?.title}
+    <div className="song">
+      <p className={song?.completed ? "song-title-completed " : ""}>
+        {song?.title}
       </p>
       <div className="btn-group">
         <Button
           variant="outline-primary"
-          onClick={() => toggleComplete(todo?.id)}
+          onClick={() => toggleComplete(song?.id)}
         >
-          {todo?.completed ? "Undo" : "Complete"}
+          {song?.completed ? "Undo" : "Complete"}
         </Button>
-        <Button variant="outline-danger" onClick={() => deleteTodo(todo?.id)}>
+        <Button variant="outline-danger" onClick={() => deleteSong(song?.id)}>
           Delete
         </Button>
       </div>
