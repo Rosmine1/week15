@@ -5,8 +5,8 @@ import type { SongItem } from "../types";
 
 type SongProps = {
   song: SongItem;
-  toggleComplete: (id: number) => void;
-  deleteSong: (id: number) => void;
+  toggleComplete: (id: string) => void;
+  deleteSong: (id: string) => void;
 };
 
 export default function Song({ song, toggleComplete, deleteSong }: SongProps) {

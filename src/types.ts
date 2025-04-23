@@ -1,6 +1,7 @@
 export type SongItem = {
-    id: number;
+    id: string;
     title: string;
     completed: boolean;
   };
   
+export type NewSongItem = Omit<SongItem, "id">;

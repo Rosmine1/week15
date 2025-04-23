@@ -1,0 +1,14 @@
+{
+  "songs": [
+    {
+      "title": "lit",
+      "completed": true,
+      "id": 1
+    },
+    {
+      "title": "amazing",
+      "completed": true,
+      "id": 2
+    }
+  ]
+}

@@ -4,8 +4,8 @@ import { SongItem } from "../types";
 
 type SongListProps = {
   songs: SongItem[];
-  toggleComplete: (id: number) => void;
-  deleteSong: (id: number) => void;
+  toggleComplete: (id: string) => void;
+  deleteSong: (id: string) => void;
 };
 
 export default function SongList({
